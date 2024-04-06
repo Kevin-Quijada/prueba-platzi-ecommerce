@@ -1,0 +1,41 @@
+el primer paso para la creacion del proyecto es instalandolo con el programa llamado 'vite' usaremos los comandos en la terminal para este comandos
+
+Primer comando: (npm create vite@latest my-project -- --template react)
+                npm es un gestor de paquete donde podemos conseguir las aplicacion para la installacion y demas opciones para la creacion de proyectos y modificacion
+                'vite@latest' es para conseguir la ultima version disponible del paquete 'vite'
+                'my-project' esta parte es para colocar el nombre de la carpeta donde va a estar todo el proyecto
+
+segundo comando: (npm install -D tailwindcss postcss autoprefixer) 
+                'install' para instalar el programa, El parámetro '-D', abreviatura de --save-dev, se utiliza para instalar paquetes como dependencias de desarrollo. Esto significa que los paquetes instalados de esta manera son necesarios para el desarrollo y pruebas del proyecto, pero no son requeridos para su ejecución en producción.
+                'tailwindcss' es un framework que nos simplifica el trabajo de diseno del css
+                'postcss' es una herramienta que permite realizar tareas de automatización sobre el CSS usando JavaScript, pero el resultado final siempre será un archivo CSS estándar que entiendan los navegadores
+                'autoprefixer'es un plugin que simplifica el proceso de escritura de reglas CSS sin la necesidad de preocuparse por los prefijos específicos requeridos por diferentes navegadores
+
+tercer comando: (npx tailwindcss init -p) 
+                El comando npx tailwindcss init -p se utiliza para inicializar la configuración de Tailwind CSS en un proyecto. Al incluir el parámetro -p, se está indicando que se desea generar un archivo de configuración completo que incluya todas las configuraciones predeterminadas de Tailwind
+                Al ejecutar este comando, se creará un archivo tailwind.config.js en el directorio raíz del proyecto. Este archivo contendrá la configuración inicial de Tailwind, que luego se puede personalizar según las necesidades específicas del proyecto
+
+el siguiente paso es configurar el archivo 'tailwind.config.js' colocando dentro del parametro content[] este contenido:
+                content: [
+                    "./index.html",
+                    "./src/**/*.{js,ts,jsx,tsx}",
+                ],
+                La configuración content en el archivo tailwind.config.js se utiliza para especificar los archivos que Tailwind CSS debe analizar en busca de clases CSS utilizadas en el proyecto. En este caso, los archivos especificados en la matriz content son index.html y todos los archivos con extensiones .js, .ts, .jsx y .tsx dentro del directorio src.
+
+las siguientes 3 lineas de codigo se agregan en el index.css pero antes de agregarlo se elimina todo el contenido del app.ccs y index.css que ya se habia creado a la hora de instalar nuestro proyecto no nesesitaremos el contenido que ya estaba tanto en el index.css como en el app.css:
+                @tailwind base;
+                @tailwind components;
+                @tailwind utilities;
+                Aqui estamos utilizando los componentes del tailwindcss
+
+ahora solo falta un framework aparte del tailwindcss que se llama daisyui utilizamos esta linea de codigo para poder instarlo en nuestro proyecto
+                npm i -D daisyui@latest
+y ahora por ultimo nos queda meter en el archivo tailwind.config.js, lo unico que estariamos agregando seria el 'plugins: [require("daisyui")],' ya que lo demas ya esta en el archivo
+                module.exports = {
+                    //...
+                    plugins: [require("daisyui")],
+                }
+ya con esto tenemos todo lo nesesario para poder correr nuestro proyecto
+
+                            
+        
